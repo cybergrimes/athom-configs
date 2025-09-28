@@ -8,9 +8,9 @@ substitutions:
   # Description as appears in ESPHome & top of webserver page
   device_description: "athom 3gang switch"
   # Project Name
-  project_name: "Athom Technology.3Gang Switch"
+  project_name: "China Athom Technology.3Gang Switch"
   # Projection version denotes the release version of the yaml file, allowing checking of deployed vs latest version
-  project_version: "v1.1.3"
+  project_version: "v1.1.4"
   # Restore the relay (GPO switch) upon reboot to state:
   light1_restore_mode: RESTORE_DEFAULT_OFF
   light2_restore_mode: RESTORE_DEFAULT_OFF
@@ -42,6 +42,10 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
+  platformio_options:
+    board_upload.flash_size: 2MB
+    board_upload.maximum_size: 2097152
+    board_build.ldscript: eagle.flash.2m.ld
   on_boot:
     - priority: 600
       then:
@@ -85,9 +89,6 @@ logger:
   level: ${log_level}
   baud_rate: 115200
 
-mdns:
-  disabled: false
-
 web_server:
   port: 80
 
@@ -101,6 +102,9 @@ wifi:
   fast_connect: "${wifi_fast_connect}"
   # Define dns domain / suffix to add to hostname
   domain: "${dns_domain}"
+
+mdns:
+  disabled: false
 
 captive_portal:
 

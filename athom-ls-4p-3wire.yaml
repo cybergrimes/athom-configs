@@ -1,7 +1,7 @@
 substitutions:
   device_name: "athom-ls-4p-3wire"
-  project_name: "Athom Technology.LS 4P 3Wire"
-  project_version: "1.1.1"
+  project_name: "China Athom Technology.LS 4P 3Wire"
+  project_version: "1.1.2"
   button_toggle: "true"
   led_restore_mode: RESTORE_DEFAULT_OFF
   number_of_leds: '150'
@@ -13,6 +13,10 @@ esphome:
   friendly_name: ""
   name_add_mac_suffix: true
   min_version: 2024.6.0
+  platformio_options:
+    board_upload.flash_size: 2MB
+    board_upload.maximum_size: 2097152
+    board_build.ldscript: eagle.flash.2m.ld
   project:
     name: "${project_name}"
     version: "${project_version}"
@@ -31,14 +35,14 @@ ota:
 logger:
   baud_rate: 0
 
-mdns:
-  disabled: false
-
 web_server:
   port: 80
 
 wifi:
   ap: {} # This spawns an AP with the device name and mac address with no password.
+
+mdns:
+  disabled: false
 
 captive_portal:
 

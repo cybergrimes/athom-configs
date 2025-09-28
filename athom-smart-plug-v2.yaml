@@ -4,8 +4,8 @@ substitutions:
   # Allows ESP device to be automatically lined to an 'Area' in Home Assistant. Typically used for areas such as 'Lounge Room', 'Kitchen' etc
   room: ""
   device_description: "athom smart plug v2"
-  project_name: "Athom Technology.Smart Plug V2"
-  project_version: "v2.0.7"
+  project_name: "China Athom Technology.Athom Plug V2"
+  project_version: "v2.0.8"
   sensor_update_interval: "10s"
   relay_restore_mode: RESTORE_DEFAULT_ON
   # Current Limit in Amps. AU Plug = 10. IL, BR, EU, UK, US Plug = 16.
@@ -46,6 +46,10 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
+  platformio_options:
+    board_upload.flash_size: 2MB
+    board_upload.maximum_size: 2097152
+    board_build.ldscript: eagle.flash.2m.ld
   on_boot:
     - priority: 600
       then:
@@ -86,9 +90,6 @@ logger:
   level: ${log_level}
   baud_rate: 0
 
-mdns:
-  disabled: false
-
 web_server:
   port: 80
 #  version: 3
@@ -103,6 +104,9 @@ wifi:
   fast_connect: "${wifi_fast_connect}"
   # Define dns domain / suffix to add to hostname
   domain: "${dns_domain}"
+
+mdns:
+  disabled: false
 
 captive_portal:
 

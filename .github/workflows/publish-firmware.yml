@@ -10,7 +10,7 @@ permissions:
 jobs:
   build-firmware:
     name: Build Firmware
-    uses: esphome/workflows/.github/workflows/build.yml@2025.7.0
+    uses: esphome/workflows/.github/workflows/build.yml@2025.8.1
     with:
       #### Modify below here to match your project ####
       files: |
@@ -36,8 +36,8 @@ jobs:
         athom-sw04.yaml
         athom-wall-outlet.yaml
         athom-without-relay-plug.yaml
-      esphome-version: 2025.7.0
-      combined-name: Athom-ESP32-Device
+      esphome-version: 2025.8.0
+      combined-name: project-template
       #### Modify above here to match your project ####
 
       release-summary: ${{ github.event.release.body }}
@@ -46,7 +46,7 @@ jobs:
 
   upload-to-release:
     name: Upload to Release
-    uses: esphome/workflows/.github/workflows/upload-to-gh-release.yml@2025.7.0
+    uses: esphome/workflows/.github/workflows/upload-to-gh-release.yml@2025.8.1
     needs:
       - build-firmware
     with:

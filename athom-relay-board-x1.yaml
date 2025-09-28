@@ -8,9 +8,9 @@ substitutions:
   # Description as appears in ESPHome & top of webserver page
   device_description: "athom esp8266 1ch relay board"
   # Project Name
-  project_name: "Athom Technology.Athom 1CH Relay Board"
+  project_name: "China Athom Technology.Athom 1CH Relay Board"
   # Projection version denotes the release version of the yaml file, allowing checking of deployed vs latest version
-  project_version: "v1.0.3"
+  project_version: "v1.0.4"
    # Restore the relay (GPO switch) upon reboot to state:
   relay_restore_mode: RESTORE_DEFAULT_OFF
   # Define a domain for this device to use. i.e. iot.home.lan (so device will appear as athom-smart-plug-v2.iot.home.lan in DNS/DHCP logs)
@@ -40,6 +40,10 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
+  platformio_options:
+    board_upload.flash_size: 2MB
+    board_upload.maximum_size: 2097152
+    board_build.ldscript: eagle.flash.2m.ld
 
 esp8266:
   board: esp8285
@@ -70,6 +74,9 @@ wifi:
   fast_connect: "${wifi_fast_connect}"
   # Define dns domain / suffix to add to hostname
   domain: "${dns_domain}"
+
+mdns:
+  disabled: false
 
 captive_portal:
 
