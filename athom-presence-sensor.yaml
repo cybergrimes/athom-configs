@@ -78,8 +78,8 @@ mdns:
 
 captive_portal:
 
-dashboard_import:
-  package_import_url: github://cybergrimes/athom-configs/athom-presence-sensor.yaml
+#dashboard_import:
+#  package_import_url: github://cybergrimes/athom-configs/athom-presence-sensor.yaml
 
 light:
   - platform: status_led
