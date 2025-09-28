@@ -126,7 +126,7 @@ binary_sensor:
       mode:
         input: true
         pullup: true
-    name: "Pir Sensor"
+    name: "PIR Sensor"
     id: pir
     filters:
       - delayed_on: 50ms
@@ -416,15 +416,15 @@ text_sensor:
       name: "Connected SSID"
       entity_category: diagnostic
     mac_address:
-      name: "Mac Address"
+      name: "MAC Address"
       entity_category: diagnostic
 
   #  Creates a sensor showing when the device was last restarted
-  - platform: template
-    name: 'Last Restart'
-    id: device_last_restart
-    icon: mdi:clock
-    entity_category: diagnostic
+#  - platform: template
+#    name: 'Last Restart'
+#    id: device_last_restart
+#    icon: mdi:clock
+#    entity_category: diagnostic
 #    device_class: timestamp
 
   #  Creates a sensor of the uptime of the device, in formatted days, hours, minutes and seconds
