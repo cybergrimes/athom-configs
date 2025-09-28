@@ -4,7 +4,7 @@ substitutions:
   # Default friendly name
   friendly_name: "Athom Presence Sensor"
   # Allows ESP device to be automatically linked to an 'Area' in Home Assistant. Typically used for areas such as 'Lounge Room', 'Kitchen' etc
-  room: ""
+  room: "Garage"
   # Description as appears in ESPHome & top of webserver page
   device_description: "Athom mmWave human presence sensor"
   # Project Name
