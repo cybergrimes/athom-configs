@@ -75,7 +75,7 @@ wifi:
 captive_portal:
 
 dashboard_import:
-  package_import_url: github://athom-tech/athom-configs/athom-presence-sensor.yaml
+  package_import_url: github://cybergrimes/athom-configs/athom-presence-sensor.yaml
 
 light:
   - platform: status_led
