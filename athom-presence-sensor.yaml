@@ -4,8 +4,7 @@ substitutions:
   room: "Garage"
   device_description: "Athom mmWave human presence sensor"
   project_name: "Athom Technology.Athom Presence Sensor"
-  project_version: "v1.0.4"
-  # dns_domain: ".local"
+  project_version: "v1.0.5"
   wifi_fast_connect: "true"
   log_level: "DEBUG"
 
@@ -26,7 +25,6 @@ esphome:
 
 esp8266:
   board: esp8285
-  # restore_from_flash: true
 
 preferences:
   flash_write_interval: 1min
@@ -50,8 +48,6 @@ wifi:
 
 mdns:
   disabled: false
-
-# captive_portal:
 
 dashboard_import:
   package_import_url: github://cybergrimes/athom-configs/athom-presence-sensor.yaml
