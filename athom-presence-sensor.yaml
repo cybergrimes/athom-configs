@@ -33,6 +33,9 @@ logger:
   level: ${log_level}
   baud_rate: 115200
 
+debug:
+  update_interval: 60s
+
 api:
 
 ota:
@@ -390,6 +393,10 @@ text_sensor:
     mac_address:
       name: "MAC Address"
       entity_category: diagnostic
+
+  - platform: debug
+    device:
+      name: "Device Info"
 
   #  Creates a sensor of the uptime of the device, in formatted days, hours, minutes and seconds
   - platform: template
