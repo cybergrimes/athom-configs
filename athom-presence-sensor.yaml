@@ -163,10 +163,11 @@ sensor:
 
   - platform: copy
     source_id: wifi_signal_db
-    name: "WiFi Signal Percent"
+    id: wifi_signal_pct
+    name: "WiFi Signal %"
     filters:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
-    unit_of_measurement: "Signal %"
+    unit_of_measurement: "%"
     entity_category: "diagnostic"
     device_class: ""
 
