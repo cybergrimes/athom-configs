@@ -1,32 +1,14 @@
 substitutions:
-  # Default name
-  name: "athom-presence-sensor"
-  # Default friendly name
-  friendly_name: "Athom Presence Sensor"
-  # Allows ESP device to be automatically linked to an 'Area' in Home Assistant. Typically used for areas such as 'Lounge Room', 'Kitchen' etc
+  name: "garage-presence-sensor"
+  friendly_name: "Garage Presence Sensor"
   room: "Garage"
-  # Description as appears in ESPHome & top of webserver page
   device_description: "Athom mmWave human presence sensor"
-  # Project Name
   project_name: "Athom Technology.Athom Presence Sensor"
-  # Projection version denotes the release version of the yaml file, allowing checking of deployed vs latest version
   project_version: "v1.0.4"
-  # Define a domain for this device to use. i.e. iot.home.lan (so device will appear as athom-smart-plug-v2.iot.home.lan in DNS/DHCP logs)
   dns_domain: ".local"
-  # Set timezone of the smart plug. Useful if the plug is in a location different to the HA server. Can be entered in unix Country/Area format (i.e. "Australia/Sydney")
-  timezone: "America/Denver"
-  # Set the duration between the sntp service polling ntp.org servers for an update
-  sntp_update_interval: 6h
-  # Network time servers for your region, enter from lowest to highest priority. To use local servers update as per zones or countries at: https://www.ntppool.org/zone/@
-  sntp_server_1: "0.pool.ntp.org"
-  sntp_server_2: "1.pool.ntp.org"
-  sntp_server_3: "2.pool.ntp.org"
-  # Enables faster network connections, with last connected SSID being connected to and no full scan for SSID being undertaken
-  wifi_fast_connect: "false"
-  # Define logging level: NONE, ERROR, WARN, INFO, DEBUG (Default), VERBOSE, VERY_VERBOSE
+  wifi_fast_connect: "true"
   log_level: "DEBUG"
-  # Enable or disable the use of IPv6 networking on the device
-  ipv6_enable: "false"
+#  ipv6_enable: "false"
 
 esphome:
   name: "${name}"
@@ -62,8 +44,8 @@ ota:
 web_server:
   port: 80
 
-network:
-  enable_ipv6: ${ipv6_enable}
+#network:
+#  enable_ipv6: ${ipv6_enable}
 
 wifi:
   # This spawns an AP with the device name and mac address with no password.
@@ -423,14 +405,6 @@ text_sensor:
       name: "MAC Address"
       entity_category: diagnostic
 
-  #  Creates a sensor showing when the device was last restarted
-#  - platform: template
-#    name: 'Last Restart'
-#    id: device_last_restart
-#    icon: mdi:clock
-#    entity_category: diagnostic
-#    device_class: timestamp
-
   #  Creates a sensor of the uptime of the device, in formatted days, hours, minutes and seconds
   - platform: template
     name: "Uptime"
@@ -455,27 +429,3 @@ text_sensor:
         return { (String(seconds) +"s").c_str() };
       }
     icon: mdi:clock-start
-
-time:
-  - platform: sntp
-    id: sntp_time
-  # Define the timezone of the device
-    timezone: "${timezone}"
-  # Change sync interval from default 5min to 6 hours (or as set in substitutions)
-    update_interval: ${sntp_update_interval}
-  # Set specific sntp servers to use
-    servers:
-      - "${sntp_server_1}"
-      - "${sntp_server_2}"
-      - "${sntp_server_3}"
-  # Publish the time the device was last restarted
-#    on_time_sync:
-#      then:
-        # Update last restart time, but only once.
-#        - if:
-#            condition:
-#              lambda: 'return id(device_last_restart).state == "";'
-#            then:
-#              - text_sensor.template.publish:
-#                  id: device_last_restart
-#                  state: !lambda 'return id(sntp_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
