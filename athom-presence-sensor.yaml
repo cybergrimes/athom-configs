@@ -51,7 +51,7 @@ wifi:
 mdns:
   disabled: false
 
-captive_portal:
+# captive_portal:
 
 dashboard_import:
   package_import_url: github://cybergrimes/athom-configs/athom-presence-sensor.yaml
