@@ -18,7 +18,6 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
-  build_path: "../config/esphome/build/${name}"
   platformio_options:
     board_upload.flash_size: 2MB
     board_upload.maximum_size: 2097152
