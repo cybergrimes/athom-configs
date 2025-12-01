@@ -41,6 +41,7 @@ ota:
 wifi:
   ap: {}
   fast_connect: "${wifi_fast_connect}"
+  min_auth_mode: "WPA2"
 
 mdns:
   disabled: false
