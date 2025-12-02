@@ -4,7 +4,7 @@ substitutions:
   room: "Garage"
   device_description: "Athom mmWave human presence sensor"
   project_name: "Athom Technology.Athom Presence Sensor"
-  project_version: "v1.0.6"
+  project_version: "v1.0.7"
   wifi_fast_connect: "true"
   log_level: "DEBUG"
 
