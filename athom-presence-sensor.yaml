@@ -143,10 +143,8 @@ binary_sensor:
 
 sensor:
   - platform: uptime
-    name: "Uptime Sensor"
-    id: uptime_sensor
+    name: "Uptime"
     entity_category: diagnostic
-    internal: true
 
   - platform: wifi_signal
     name: "WiFi Signal dB"
@@ -391,8 +389,3 @@ text_sensor:
     mac_address:
       name: "MAC Address"
       entity_category: diagnostic
-
-sensor:
-  - platform: uptime
-    name: "Uptime"
-    entity_category: diagnostic
