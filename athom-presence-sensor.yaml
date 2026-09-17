@@ -14,7 +14,7 @@ esphome:
   comment: "${device_description}"
   area: "${room}"
   name_add_mac_suffix: false
-  min_version: 2024.6.0
+  min_version: 2026.6.0
   project:
     name: "${project_name}"
     version: "${project_version}"
@@ -37,9 +37,9 @@ api:
 
 ota:
   - platform: esphome
+    encryption:
 
 wifi:
-  ap: {}
   fast_connect: "${wifi_fast_connect}"
   min_auth_mode: "WPA2"
 
